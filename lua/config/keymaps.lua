@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 local map = vim.api.nvim_set_keymap
+local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 map("n", "T", "<cmd>bnext<cr>", opts)
@@ -40,6 +41,19 @@ map("n", "<Leader>dbi", "<cmd>lua require'dap'.step_into()<cr>", opts)
 map("n", "<Leader>dbO", "<cmd>lua require'dap'.step_out()<cr>", opts)
 map("n", "<Leader>dbb", "<cmd>lua require'dap'.toggel_breakpoint()<cr>", opts)
 map("n", "<S-m>", ":Navbuddy<cr>", opts)
-vim.keymap.set("n", "<leader>rn", function()
+
+-- IncRename
+set("n", "<leader>rn", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
+
+-- Yanky
+set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
+
+set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+set("n", "<c-n>", "<Plug>(YankyNextEntry)")
+
+set("n", "<leader>h", ":Telescope yank_history<cr>")
