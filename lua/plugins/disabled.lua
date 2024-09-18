@@ -12,7 +12,7 @@ return {
         "garymjr/nvim-snippets",
         enabled = true,
         opts = {
-            friendly_snippets = true,
+            friendly_snippets = false,
         },
     },
 
