@@ -6,8 +6,6 @@ local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-map("n", "T", "<cmd>bnext<cr>", opts)
-
 -- Save
 map("n", "<C-s>", ":w<CR>", opts)
 map("i", "<C-s>", "<C-o>:w<CR>", opts)
@@ -57,3 +55,21 @@ set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
 set("n", "<c-n>", "<Plug>(YankyNextEntry)")
 
 set("n", "<leader>h", ":Telescope yank_history<cr>")
+set("n", "<leader>gg", ":Neogit<cr>")
+
+-- Buffers
+set("n", "T", ":BufferNext<cr>")
+set("n", "H", ":BufferPrevious<cr>")
+set("n", "<C-c>", ":BufferClose<cr>")
+set("n", "<C-b>", ":Telescope buffers<cr>")
+
+-- Move
+set("n", "<A-Up>", ":MoveLine -1<cr>")
+set("n", "<A-Down>", ":MoveLine 1<cr>")
+set("n", "<C-S-Up>", ":MoveWord 1<cr>")
+set("n", "<C-S-Down>", ":MoveWord -1<cr>")
+
+-- Neogen
+set("n", "gC", ":Neogen<cr>")
+
+-- Session management
